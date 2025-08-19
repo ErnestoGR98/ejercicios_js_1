@@ -231,17 +231,117 @@ console.log(capitalizar("pedro")) // "Pedro"
 console.log(capitalizar("hola mundo")) // "Hola mundo"
 console.log(capitalizar(" ")) // ""
 
-*/ 
-
-//17
 
 function capitalizar (str){
+  let resultado = "";
+
   for (let i = 0 ; i < str.length ; i++){
-    if (str[i-1] === "" || str[i-1] === " "){
-      return str[i].toUpperCase() + str.split(1)
+    if ( i === 0 || str [i-1]=== " "){
+      resultado += str[i].toUpperCase()
+    } else {
+      resultado += str[i]
     }
-  }
+  } return resultado
 }
 console.log(capitalizar("hola mundo")) // "Hola Mundo"
 console.log(capitalizar("make it real")) // "Make It Real"
 console.log(capitalizar("")) // ""
+
+
+function max(arr) {
+  let valor = 0
+  if (arr === 0) {
+    return undefined
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > valor) {
+        valor = arr[i]
+      }
+    } return valor
+  }
+}
+console.log(max([3, 9, 6])) // 9
+console.log(max([67, 35, 54, 26])) // 67
+console.log(max([5, 9, 2, 4, 5, 7])) // 9
+
+
+function numAsteriscos(arr) {
+  let contador = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] === "*") {
+        contador++
+
+      }
+    }
+  }
+  return contador
+
+}
+console.log(numAsteriscos([
+  ['*', '', '*'],
+  ['', '*', ''],
+  ['*', '', '*']
+]))
+// 5
+
+
+const fruits = ["✌","😂","😝","😁","😱","👉","🙌","🍻","🔥","🌈","☀","🎈","🌹","💄","🎀","⚽","🎾","🏁","😡","👿","🐻","🐶","🐬","🐟","🍀","👀","🚗","🍎","💝","💙","👌","❤","😍","😉","😓","😳","💪","💩","🍸","🔑","💖","🌟","🎉","🌺","🎶","👠","🏈","⚾","🏆","👽","💀","🐵","🐮","🐩","🐎","💣","👃","👂","🍓","💘","💜","👊","💋","😘","😜","😵","🙏","👋","🚽","💃","💎","🚀","🌙","🎁","⛄","🌊","⛵","🏀","🎱","💰","👶","👸","🐰","🐷","🐍","🐫","🔫","👄","🚲","🍉","💛","💚"]
+
+console.log(fruits.at(-2))
+
+const copy = fruits.with(1,"lol")
+console.log({copy})
+
+
+const numbers = [1, 2, 3, 4, 5, 6]
+
+const grouped = Object.groupBy(
+  numbers,
+  number => {
+    if (number % 2 === 0) return 'par'
+    return 'impar' 
+  }
+)
+  console.log(grouped)
+
+
+  const wizards = ['Harry', 'Hermione', 'Ron', 'Snape', 'Dumbledore']
+  
+  const groupLastLetter = Object.groupBy(
+    wizards, 
+    wizard => wizard[wizard.length -1])
+  console.log(groupLastLetter)
+
+
+
+  let a = 5
+  let b = 2
+
+  c = ++a * b--
+  console.log(c)
+  console.log(a,b)
+  const arr = []
+  arr.push(a,b)
+  console.log(arr)
+  arr.pop()
+  console.log(arr)
+
+
+let a = 20;
+let b = 30;
+(a>b)?console.log(true):console.log(false)
+
+
+matrix = [
+  [10,20,30],
+  [40,50,60]];
+
+  for(let i = 0 ; i<matrix.length;i++){
+    for(let j = 0; j<matrix[i].length; j++)
+      console.log(matrix[i][j])
+  }
+
+  console.log(matrix[0].length)
+
+*/
