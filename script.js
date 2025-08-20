@@ -344,4 +344,47 @@ matrix = [
 
   console.log(matrix[0].length)
 
+
+
+function recursivo(numero){
+  if(numero === 1){
+    console.log(numero)
+  }else{
+    console.log(numero)
+    recursivo(numero-1)
+  }
+}
+
+recursivo(5)
+
+
+let cadena = "Hola mundo"
+let cadena2 = cadena.substring(0,4)
+console.log(cadena2)
+
+let cadena3 = cadena.substring(5)
+console.log(cadena3)
+
+let cadenaConcat = cadena2 + " " + cadena3
+console.log(cadenaConcat)
+
+
+let a = "30"
+let b = "180"
+
+let c = a + b
+console.log(c)
+let d = parseInt(a) + parseInt (b)
+console.log(d)
+
+
+let a = 30
+let b = a.toString() + 50
+console.log(b)
+
+
+let a = -30
+console.log(Math.abs(a))
+
 */
+
