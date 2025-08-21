@@ -56,7 +56,7 @@ function imprimirArreglo(... lista){
   });
 }
 
-penes = [1, "Hola", 2, "Mundo"]
+valores = [1, "Hola", 2, "Mundo"]
 console.log(imprimirArreglo(1, "Hola", 2, "Mundo"))
 
 
@@ -388,3 +388,41 @@ console.log(Math.abs(a))
 
 */
 
+let persona = {
+  nombre: "Ernesto",
+  apellido: "González",
+  email: "ing.ernestogonzalezr@gmail.com",
+  edad: 27,
+  idioma: "es",
+  get lang(){
+    return this.idioma.toUpperCase();
+  },
+  set lang (lang){
+    this.idioma = lang.toUpperCase()
+  },
+  get nombreCompleto (){
+    return this.nombre + " " + this.apellido
+  }
+}
+/*
+console.log(persona.nombreCompleto())
+
+for(propiedad in persona){
+  console.log(propiedad + ": " + persona[propiedad])
+}
+
+persona.tel = 351215353
+console.log(persona)
+
+let personaArray = Object.values(persona)
+console.log(personaArray)
+
+let personaString = JSON.stringify(persona)
+console.log(personaString)
+*/
+
+console.log(persona.nombreCompleto)
+console.log(persona.lang)
+persona.lang = "en"
+console.log(persona.lang)
+console.log(persona.idioma)
