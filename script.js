@@ -386,7 +386,7 @@ console.log(b)
 let a = -30
 console.log(Math.abs(a))
 
-*/
+
 
 let persona = {
   nombre: "Ernesto",
@@ -404,7 +404,7 @@ let persona = {
     return this.nombre + " " + this.apellido
   }
 }
-/*
+
 console.log(persona.nombreCompleto())
 
 for(propiedad in persona){
@@ -419,10 +419,327 @@ console.log(personaArray)
 
 let personaString = JSON.stringify(persona)
 console.log(personaString)
-*/
+
 
 console.log(persona.nombreCompleto)
 console.log(persona.lang)
 persona.lang = "en"
 console.log(persona.lang)
 console.log(persona.idioma)
+
+
+// función constructor de objetos de tipo persona
+function Persona(nombre, apellido, email){
+  this.nombre = nombre;
+  this.apellido = apellido;
+  this.email = email;
+  this.nombreCompleto = function(){
+    return this.nombre + " " + this.apellido
+  }
+}
+let padre = new Persona("Juan", "Perez", "juanprz123@email.com")
+console.log(padre)
+
+let madre = new Persona("María", "Ramírez", "maríaramirez@email.com")
+console.group(madre)
+
+padre.nombre = "Carlos"
+
+console.log(padre)
+console.log(padre.nombreCompleto())
+
+let miObjeto = new Object ()
+let miObjeto2 = {}
+
+let miCadena1 = new String()
+
+Persona.prototype.tel = "000 000 0000"
+padre.tel = "333 555 12546"
+console.log(madre.nombreCompleto() + ": " + madre.tel)
+console.log(padre.nombreCompleto() + ": " + padre.tel)
+
+
+
+//función declarada o normal
+function suma(a,b){
+  return a+b
+}
+
+console.log(suma(5,8))
+
+//función flecha (es anónima)
+let sumaArrow = (a,b) => a+b 
+console.log(sumaArrow(4,6))
+
+//función anónima
+let sumaAnonima = function (a,b){
+  return a+b
+}
+
+console.log(sumaAnonima(5,80))
+
+function primero(segundo){
+  setTimeout(function(){
+      console.log("PRIMERO") 
+      segundo()
+  }, 3000)
+
+}
+
+function segundo(){
+  console.log("SEGUNDO")
+}
+  
+
+primero(segundo)
+
+*/
+/*
+
+//Métodos de arrays
+const personas = [
+  {
+    nombre: "Ana",
+    edad: 28,
+    profesion: "Ingeniera",
+    hobbies: ["leer ciencia ficción", "resolver acertijos", "hacer senderismo", "bicicleta"]
+  },
+  {
+    nombre: "Luis",
+    edad: 35,
+    profesion: "Diseñador",
+    hobbies: ["dibujar", "coleccionar tipografías", "fotografía urbana"]
+  },
+  {
+    nombre: "Sofía",
+    edad: 22,
+    profesion: "Desarrolladora",
+    hobbies: ["jugar videojuegos", "aprender nuevos lenguajes", "escribir blogs tech", "bicicleta"]
+  },
+  {
+    nombre: "Carlos",
+    edad: 40,
+    profesion: "Músico",
+    hobbies: ["componer canciones", "tocar guitarra", "explorar géneros musicales"]
+  }
+];
+
+
+//método find
+console.log(personas.find(persona=>persona.nombre==="Ana"))
+console.log(personas.find(persona=>persona.edad===40))
+
+function metodoFind(llave, valor){
+  return personas.find(persona=>persona[llave]===valor)
+}
+
+console.log(metodoFind("edad",35), metodoFind("nombre","Ana"))
+
+//método some
+console.log(personas.some(persona => persona.profesion==="Músico"))
+
+//some+includes
+console.log(personas.some(persona=>persona.hobbies.includes("jugar videojuegos")))
+
+function metodoSome(llave, valor){
+  return(personas.some(persona=>persona[llave]===valor))
+}
+console.log(metodoSome("profesion","Desarrolladora"))
+
+//método map
+const nombresArray = (personas.map(persona=>persona.nombre))
+
+//método forEach
+nombresArray.forEach(nombre => {
+  console.log("Hola, soy: " + nombre)
+});
+
+//método filter
+console.log(personas.filter(persona => persona.hobbies.includes("bicicleta")))
+
+//método reduce
+let x = personas.reduce((allHobbies, persona) => {
+  return[...allHobbies, ...persona.hobbies];
+},[])
+
+console.log(x)
+
+*/
+/*
+//Desestructuración
+// en arreglos
+const arreglo = [1,2,3,4,5]
+const [valor1,valor2,valor3] = arreglo
+console.log(valor1)
+
+//en objetos
+const persona={
+  id: 10,
+  nombre: "Carolina"
+}
+const {id, nombre} = persona
+console.log(id +  " " + nombre)
+
+
+//Rest operator
+function sumar(a,b, ...c){
+  let resultado = a + b
+
+  c.forEach(function(n){
+    resultado +=n
+    
+  });
+  return resultado
+}
+
+console.log(sumar(5,2,3,5,6,32))
+
+//Spread operator
+ const arr1 = [1,2,3,4,5]
+ const arr2 = [10,9,8,7,6]
+
+ arr3 = [...arr1 , ...arr2]
+ console.log(arr3)
+
+*/
+/*
+
+const usuario = {
+  nombre: "Ernesto",
+  edad: 30,
+  ciudad: "Guadalajara"
+};
+
+// Desestructuración
+const { nombre, ciudad } = usuario;
+
+console.log(nombre); // "Ernesto"
+console.log(ciudad); // "Guadalajara"
+
+const numeros = [10, 20, 30];
+
+// Desestructuración
+const [primero, ,tercero] = numeros;
+
+console.log(primero); // 10
+console.log(tercero); // 20
+*/
+/*
+class Persona {
+  constructor(nombre, apellido) {
+    this._nombre = nombre;
+    this._apellido = apellido;
+  }
+  get nombre() {
+    return this._nombre
+  }
+  set nombre(nombre) {
+    this._nombre = nombre;
+  }
+}
+
+let persona1 = new Persona("Juan", "González");
+persona1.nombre = " Roberto"; //set nombre(Roberto)
+
+console.log(persona1.nombre); //get nombre
+
+class Animal {
+  constructor(tipo, patas) {
+    this._tipo = tipo;
+    this._patas = patas;
+  }
+
+  get tipo() {
+    return this._tipo;
+  }
+  get patas() {
+    return this._patas;
+  }
+  set tipo(tipo) {
+    this._tipo = tipo;
+  }
+  set patas(patas){
+    this._patas = patas;
+  }
+}
+
+let perro1 = new Animal("Perro", 4);
+console.log(perro1.tipo)
+
+class Felino extends Animal{
+  constructor(tipo, patas, habitat){
+    super(tipo, patas) // llamar al constructor de la clase padre
+    this._habitat = habitat;
+
+  }
+  get habitat() {
+    return this._habitat;
+  }
+  set habitat(habitat) {
+    this._habitat = habitat;
+  }
+
+  DatosCompletos(){
+
+  }
+}
+
+let gato1 = new Felino("Gato",4,"Casa");
+console.log(gato1)
+console.log(gato1._patas)
+*/
+
+class Cancion {
+  constructor(nombre, artista, genero) {
+    this._nombre = nombre;
+    this._artista = artista;
+    this._genero = genero;
+  }
+  get nombre() {
+    return this._nombre;
+  }
+  get artista() {
+    return this._artista;
+  }
+  get genero() {
+    return this._genero;
+  }
+  set nombre(nombre) {
+    this._nombre = nombre;
+  }
+  set artista(artista) {
+    this._artista = artista;
+  }
+  set genero(genero) {
+    this._genero = genero;
+  }
+}
+
+class Rancheras extends Cancion {
+  constructor(nombre, artista, genero, anio, instrumentos) {
+    super(nombre, artista, genero)
+    this._anio = anio
+    this._instrumentos = instrumentos
+  }
+  get anio() {
+    return this._anio;
+  }
+  get instrumentos() {
+    return this._instrumentos;
+  }
+  set anio(anio) {
+    this._anio = anio;
+  }
+  set instrumentos(instrumentos) {
+    this._instrumentos = instrumentos;
+  }
+  nombreMasArtista(){
+    return this.nombre + " - " + this.artista
+  }
+}
+
+let ranchera1 = new Rancheras("El Rey", "Vicente Fernandez", "Ranchera","1971", "guitarra, trompeta, violín, vihuela")
+console.log(ranchera1)
+console.log(ranchera1._instrumentos)
+
+console.log(ranchera1.nombreMasArtista()) 
